@@ -1,0 +1,23 @@
+.income-index
+  %h2.income-index__title
+    収入項目一覧
+  .income-index__link
+    =link_to new_income_path do
+      項目登録する
+  .new_income__content
+    -if @incomes.present?
+      %table
+        %thead
+          %tr
+            %th 項目
+            %th 備考
+        %tbody
+          -@incomes.each do |income|
+            %tr
+              %td
+                = income.name
+              %td
+                = income.discription
+    -else
+      %p.empty
+        登録されている項目はありません

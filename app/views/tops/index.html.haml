@@ -1,0 +1,14 @@
+.top
+  .top__header
+    %h1.top__header--title
+      Kakeiko
+  .top__main
+    .top__main--left
+      %h2.top__main--left--title
+        項目設定
+        .item
+          .item__income
+            = link_to incomes_path, method: :get, class:"item__income--link" do
+              income
+    .top__main--right
+      %h2.top__main--right--title
