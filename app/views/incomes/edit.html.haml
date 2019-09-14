@@ -3,5 +3,7 @@
     収入項目登録
   .income-edit__content
   = form_for @income do |f|
+    = link_to incomes_path, method: :get do
+      収入一覧に戻る
     = render "form" ,f: f
     = f.submit "edit"
