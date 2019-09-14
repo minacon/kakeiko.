@@ -1,0 +1,9 @@
+.fixedcost-new
+  %h2.fixedcost-new__title
+    固定費項目登録
+  .fixedcost-new__content
+  = form_for @fixed do |f|
+    = link_to fixedcosts_path, method: :get do
+      固定費一覧に戻る
+    = render "incomes/form" ,f: f
+    = f.submit "fixedcost"

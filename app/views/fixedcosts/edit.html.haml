@@ -1,0 +1,9 @@
+.fixedcost-edit
+  %h2.fixedcost-edit__title
+    固定費項目登録
+  .fixedcost-edit__content
+  = form_for @fixed do |f|
+    = link_to fixedcosts_path, method: :get do
+      固定費項目一覧へ
+    = render "incomes/form" ,f: f
+    = f.submit "edit"
