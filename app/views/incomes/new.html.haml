@@ -1,0 +1,9 @@
+.income-new
+  %h2.income-new__title
+    収入項目登録
+  .income-new__content
+  = form_for @income do |f|
+    = render "form" ,f: f
+    = f.submit "income"
+  
+  
