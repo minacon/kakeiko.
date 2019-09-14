@@ -2,9 +2,9 @@
   %h2.income-show__title
     項目詳細
   .income-show__link
-    =link_to edit_income_path(@income) do
+    = link_to edit_income_path(@income) do
       編集
-    =link_to incomes_path do
+    = link_to incomes_path, method: :get do
       収入項目一覧へ
   .income-show__content
     .income-show__content--name

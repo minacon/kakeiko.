@@ -18,6 +18,9 @@
                 = income.name
               %td
                 = income.discription
+              %td
+                = link_to edit_income_path(income.id) do
+                  編集
     -else
       %p.empty
         登録されている項目はありません
