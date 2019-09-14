@@ -1,0 +1,15 @@
+.variable-show
+  %h2.variable-show__title
+    項目詳細
+  .variable-show__link
+    = link_to edit_variable_path(@variable) do
+      編集
+    = link_to variables_path, method: :get do
+      変動費項目一覧へ
+  .variable-show__content
+    .variable-show__content--name
+      項目名
+      = @variable.name
+    .variable-show__content--discription
+      説明
+      = @variable.discription

@@ -1,0 +1,9 @@
+.variable-new
+  %h2.variable-new__title
+    変動費項目登録
+  .variable-new__content
+  = form_for @variable do |f|
+    = link_to variables_path, method: :get do
+      変動費一覧へ
+    = render "incomes/form" ,f: f
+    = f.submit "variablecost"

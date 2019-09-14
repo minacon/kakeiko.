@@ -1,0 +1,29 @@
+.variable-index
+  %h2.variable-index__title
+    変動費項目一覧
+  .variable-index__link
+    =link_to new_variable_path do
+      項目登録する
+  .new_variable__content
+    -if @variables.present?
+      %table
+        %thead
+          %tr
+            %th 項目
+            %th 備考
+        %tbody
+          -@variables.each do |variable|
+            %tr
+              %td
+                = variable.name
+              %td
+                = variable.discription
+              %td
+                = link_to edit_variable_path(variable.id) do
+                  編集
+              %td
+                = link_to variable_path(variable.id), method: :delete, data:{confirm: "本当に削除しますか？"} do
+                  削除
+    -else
+      %p.empty
+        登録されている項目はありません
