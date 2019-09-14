@@ -1,0 +1,29 @@
+.fixed-index
+  %h2.fixed-index__title
+    固定費項目一覧
+  .fixed-index__link
+    =link_to new_fixedcost_path do
+      項目登録する
+  .new_fixed__content
+    -if @fixeds.present?
+      %table
+        %thead
+          %tr
+            %th 項目
+            %th 備考
+        %tbody
+          -@fixeds.each do |fixed|
+            %tr
+              %td
+                = fixed.name
+              %td
+                = fixed.discription
+              %td
+                = link_to edit_fixedcost_path(fixed.id) do
+                  編集
+              %td
+                = link_to fixedcost_path(fixed.id), method: :delete, data:{confirm: "本当に削除しますか？"} do
+                  削除
+    -else
+      %p.empty
+        登録されている項目はありません

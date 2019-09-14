@@ -1,0 +1,15 @@
+.fixedcost-show
+  %h2.fixedcost-show__title
+    項目詳細
+  .fixedcost-show__link
+    = link_to edit_fixedcost_path(@fixed) do
+      編集
+    = link_to fixedcosts_path, method: :get do
+      固定費項目一覧へ
+  .fixedcost-show__content
+    .fixedcost-show__content--name
+      項目名
+      = @fixed.name
+    .fixedcost-show__content--discription
+      説明
+      = @fixed.discription
