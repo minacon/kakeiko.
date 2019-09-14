@@ -2,6 +2,9 @@
   .top__header
     %h1.top__header--title
       Kakeiko
+    -if user_signed_in?
+      = link_to  destroy_user_session_path, method: :delete do
+        logout
   .top__main
     .top__main--left
       %h2.top__main--left--title
