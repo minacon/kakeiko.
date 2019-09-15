@@ -8,8 +8,14 @@
       収入項目一覧へ
   .income-show__content
     .income-show__content--name
+      年月
+      = @income.year_month
+    .income-show__content--name
       項目名
       = @income.name
+    .income-show__content--amount
+      金額
+      = @income.amount
     .income-show__content--discription
       説明
       = @income.discription

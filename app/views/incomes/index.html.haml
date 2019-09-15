@@ -2,6 +2,10 @@
   %h2.income-index__title
     収入項目一覧
   .income-index__link
+    -# = form_for new_income_path do |f|
+    -#   = f.label:name, "年月"
+    -#   = f.month_field:year_month
+    -#   = f.submit "登録する"
     =link_to new_income_path do
       項目登録する
   .new_income__content
@@ -9,13 +13,19 @@
       %table
         %thead
           %tr
+            %th 年月
             %th 項目
-            %th 備考
+            %th 金額
+            %th 説明
         %tbody
           -@incomes.each do |income|
             %tr
               %td
+                =income.year_month
+              %td
                 = income.name
+              %td
+                = income.amount
               %td
                 = income.discription
               %td
@@ -24,6 +34,10 @@
               %td
                 = link_to income_path(income.id), method: :delete, data:{confirm: "本当に削除しますか？"} do
                   削除
+      .new_income__content--sum
+        収入合計
+        = @incomes.sum(:amount)
+        円
     -else
       %p.empty
         登録されている項目はありません

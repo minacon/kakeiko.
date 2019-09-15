@@ -1,6 +1,12 @@
+.item-form__year-month
+  = f.label:name, "年月"
+  = f.date_field:year_month
 .item-form__name
   = f.label:name, "項目名"
   = f.text_field:name
+.item-form__amount
+  = f.label:name, "金額"
+  = f.text_field:amount
 .item-form__discription
   = f.label:name, "説明"
   = f.text_field:discription

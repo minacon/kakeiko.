@@ -2,7 +2,8 @@ class IncomesController < ApplicationController
   before_action :set_income, except: [:index, :new, :create]
 
   def index
-    @incomes = Income.order(created_at: :asc)
+    @incomes = Income.where(user_id:current_user.id).order(created_at: :asc)
+
   end
 
   def new
@@ -10,6 +11,7 @@ class IncomesController < ApplicationController
   end
 
   def create
+    binding.pry
     @income = Income.new(income_params)
     if @income.save
       redirect_to @income, notice: '項目を登録しました'
@@ -41,8 +43,13 @@ class IncomesController < ApplicationController
 
   private
   def income_params
-    params.require(:income).permit(:name, :discription)
+    binding.pry
+    params.require(:income).permit(:name, :discription,:amount,:year_month).merge(user_id: current_user.id)
   end
+
+  # def year_params
+  #   params.permit(:year_month)
+  # end
 
   def set_income
     @income = Income.find(params[:id])
